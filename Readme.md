@@ -17,7 +17,7 @@
 <br/><br/>
 
 <!-- custom night animation -->
-<video src="https://raw.githubusercontent.com/arhamkhan160/arhamkhan160/main/assets/Person_sipping_coffee_on_balcony_202607110221.mp4" width="750" autoplay loop muted playsinline></video>
+<img src="https://raw.githubusercontent.com/arhamkhan160/arhamkhan160/main/assets/coffee_balcony.gif" width="750" alt="coffee on balcony"/>
 
 <br/>
 
