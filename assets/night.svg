@@ -1,108 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320" role="img" aria-label="night balcony scene">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360" role="img" aria-label="night scene">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0b0b1a"/>
-      <stop offset="0.65" stop-color="#141129"/>
+      <stop offset="0" stop-color="#080814"/>
+      <stop offset="0.6" stop-color="#12102a"/>
       <stop offset="1" stop-color="#1a1033"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#d8d4f2" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#d8d4f2" stop-opacity="0"/>
+      <stop offset="0" stop-color="#cfc4f5" stop-opacity="0.35"/>
+      <stop offset="0.7" stop-color="#cfc4f5" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#cfc4f5" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="moonface" cx="0.4" cy="0.35" r="0.9">
+      <stop offset="0" stop-color="#f2eefc"/>
+      <stop offset="1" stop-color="#c9bfe8"/>
+    </radialGradient>
+    <clipPath id="moonclip"><circle cx="560" cy="168" r="96"/></clipPath>
   </defs>
   <style>
     .star{animation:tw 3s ease-in-out infinite}
-    .d1{animation-delay:.6s}.d2{animation-delay:1.2s}.d3{animation-delay:1.8s}.d4{animation-delay:2.4s}
+    .d1{animation-delay:.6s}.d2{animation-delay:1.2s}.d3{animation-delay:1.9s}.d4{animation-delay:2.5s}
     @keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+    .glowpulse{animation:gp 7s ease-in-out infinite}
+    @keyframes gp{0%,100%{opacity:.8}50%{opacity:1}}
+    .cloud1{animation:dr1 70s linear infinite}
+    .cloud2{animation:dr2 105s linear infinite}
+    @keyframes dr1{0%{transform:translateX(-260px)}100%{transform:translateX(1160px)}}
+    @keyframes dr2{0%{transform:translateX(1160px)}100%{transform:translateX(-360px)}}
     .steam{animation:rise 4.5s ease-in-out infinite;opacity:0}
     .s2{animation-delay:1.5s}.s3{animation-delay:3s}
-    @keyframes rise{0%{opacity:0;transform:translateY(5px)}25%{opacity:.6}100%{opacity:0;transform:translateY(-20px)}}
+    @keyframes rise{0%{opacity:0;transform:translateY(5px)}25%{opacity:.6}100%{opacity:0;transform:translateY(-22px)}}
     .win{animation:flick 7s ease-in-out infinite}
     .w2{animation-delay:2.3s}.w3{animation-delay:4.6s}
     @keyframes flick{0%,100%{opacity:.85}50%{opacity:.2}}
-    .head{animation:look 8s ease-in-out infinite;transform-origin:646px 199px}
-    @keyframes look{0%,55%,100%{transform:rotate(0)}65%,80%{transform:rotate(-9deg)}}
-    .shoot{animation:sh 9s linear infinite;opacity:0}
-    @keyframes sh{0%,88%{opacity:0;transform:translate(0,0)}90%{opacity:.9}100%{opacity:0;transform:translate(-190px,60px)}}
+    .head{animation:look 9s ease-in-out infinite;transform-box:fill-box;transform-origin:80% 80%}
+    @keyframes look{0%,55%,100%{transform:rotate(0)}63%,80%{transform:rotate(-10deg)}}
+    .blink{animation:bl 5s infinite}
+    @keyframes bl{0%,92%,100%{opacity:1}95%{opacity:0}}
+    .wing{animation:ruffle 11s ease-in-out infinite;transform-box:fill-box;transform-origin:20% 40%}
+    @keyframes ruffle{0%,88%,100%{transform:rotate(0)}91%{transform:rotate(-7deg)}94%{transform:rotate(3deg)}97%{transform:rotate(-2deg)}}
+    .feather{animation:fall 16s ease-in-out infinite;opacity:0}
+    @keyframes fall{
+      0%{opacity:0;transform:translate(0,0) rotate(0deg)}
+      6%{opacity:.9}
+      25%{transform:translate(-20px,70px) rotate(50deg)}
+      50%{transform:translate(10px,150px) rotate(-40deg)}
+      75%{transform:translate(-16px,230px) rotate(40deg)}
+      92%{opacity:.6}
+      100%{opacity:0;transform:translate(-4px,300px) rotate(-20deg)}
+    }
+    .shoot{animation:sh 11s linear infinite;opacity:0}
+    @keyframes sh{0%,87%{opacity:0;transform:translate(0,0)}89%{opacity:.9}100%{opacity:0;transform:translate(-220px,70px)}}
   </style>
 
-  <rect width="900" height="320" fill="url(#sky)"/>
+  <rect width="900" height="360" fill="url(#sky)"/>
 
   <!-- stars -->
-  <circle class="star" cx="90" cy="45" r="1.6" fill="#cfc9ee"/>
-  <circle class="star d1" cx="200" cy="80" r="1.2" fill="#cfc9ee"/>
-  <circle class="star d2" cx="330" cy="38" r="1.8" fill="#e8e4fa"/>
-  <circle class="star d3" cx="430" cy="95" r="1.1" fill="#cfc9ee"/>
-  <circle class="star d4" cx="520" cy="55" r="1.5" fill="#e8e4fa"/>
-  <circle class="star d1" cx="610" cy="30" r="1.2" fill="#cfc9ee"/>
-  <circle class="star d3" cx="700" cy="110" r="1.3" fill="#cfc9ee"/>
-  <circle class="star d2" cx="860" cy="90" r="1.4" fill="#e8e4fa"/>
-  <circle class="star d4" cx="60" cy="130" r="1.1" fill="#cfc9ee"/>
-  <circle class="star" cx="270" cy="140" r="1.0" fill="#cfc9ee"/>
-  <line class="shoot" x1="560" y1="40" x2="596" y2="28" stroke="#e8e4fa" stroke-width="1.4" stroke-linecap="round"/>
+  <circle class="star" cx="80" cy="50" r="1.6" fill="#cfc9ee"/>
+  <circle class="star d1" cx="190" cy="95" r="1.2" fill="#cfc9ee"/>
+  <circle class="star d2" cx="300" cy="40" r="1.8" fill="#e8e4fa"/>
+  <circle class="star d3" cx="410" cy="70" r="1.1" fill="#cfc9ee"/>
+  <circle class="star d4" cx="760" cy="55" r="1.5" fill="#e8e4fa"/>
+  <circle class="star d1" cx="840" cy="120" r="1.2" fill="#cfc9ee"/>
+  <circle class="star d3" cx="130" cy="150" r="1.3" fill="#cfc9ee"/>
+  <circle class="star d2" cx="700" cy="30" r="1.4" fill="#e8e4fa"/>
+  <circle class="star d4" cx="40" cy="210" r="1.1" fill="#cfc9ee"/>
+  <circle class="star" cx="870" cy="200" r="1.2" fill="#cfc9ee"/>
+  <line class="shoot" x1="180" y1="45" x2="220" y2="32" stroke="#e8e4fa" stroke-width="1.4" stroke-linecap="round"/>
 
   <!-- moon -->
-  <circle cx="790" cy="62" r="70" fill="url(#glow)"/>
-  <circle cx="790" cy="62" r="26" fill="#d8d4f2" opacity=".92"/>
-  <circle cx="801" cy="54" r="23" fill="#131129"/>
+  <circle class="glowpulse" cx="560" cy="168" r="170" fill="url(#glow)"/>
+  <circle cx="560" cy="168" r="96" fill="url(#moonface)"/>
+  <g clip-path="url(#moonclip)" fill="#b3a8d6" opacity=".5">
+    <circle cx="520" cy="130" r="14"/>
+    <circle cx="600" cy="190" r="20"/>
+    <circle cx="545" cy="215" r="10"/>
+    <circle cx="610" cy="120" r="8"/>
+  </g>
+
+  <!-- clouds drifting across moon -->
+  <g class="cloud1" fill="#0b0918" opacity=".75">
+    <ellipse cx="0" cy="150" rx="90" ry="16"/>
+    <ellipse cx="60" cy="140" rx="60" ry="12"/>
+  </g>
+  <g class="cloud2" fill="#0b0918" opacity=".6">
+    <ellipse cx="0" cy="205" rx="110" ry="14"/>
+    <ellipse cx="-70" cy="196" rx="55" ry="10"/>
+  </g>
 
   <!-- skyline -->
-  <g fill="#0e0c1e">
-    <rect x="0"   y="168" width="70"  height="60"/>
-    <rect x="80"  y="150" width="55"  height="78"/>
-    <rect x="300" y="176" width="66"  height="52"/>
-    <rect x="380" y="142" width="48"  height="86"/>
-    <rect x="440" y="188" width="80"  height="40"/>
-    <rect x="700" y="160" width="58"  height="68"/>
-    <rect x="770" y="184" width="90"  height="44"/>
+  <g fill="#0d0b1d">
+    <rect x="0" y="215" width="70" height="60"/>
+    <rect x="80" y="195" width="55" height="80"/>
+    <rect x="150" y="230" width="66" height="45"/>
+    <rect x="240" y="205" width="48" height="70"/>
+    <rect x="700" y="210" width="58" height="65"/>
+    <rect x="770" y="235" width="90" height="40"/>
   </g>
   <g fill="#ffb000">
-    <rect class="win"    x="94"  y="162" width="4" height="5"/>
-    <rect class="win w2" x="110" y="180" width="4" height="5"/>
-    <rect class="win w3" x="394" y="156" width="4" height="5"/>
-    <rect class="win w2" x="410" y="176" width="4" height="5"/>
-    <rect class="win"    x="716" y="172" width="4" height="5"/>
-    <rect class="win w3" x="20"  y="182" width="4" height="5"/>
+    <rect class="win" x="94" y="207" width="4" height="5"/>
+    <rect class="win w2" x="110" y="228" width="4" height="5"/>
+    <rect class="win w3" x="254" y="218" width="4" height="5"/>
+    <rect class="win w2" x="716" y="222" width="4" height="5"/>
+    <rect class="win w3" x="20" y="228" width="4" height="5"/>
+    <rect class="win" x="800" y="245" width="4" height="5"/>
   </g>
 
   <!-- balcony floor + railing -->
-  <rect x="0" y="288" width="900" height="32" fill="#08070f"/>
-  <rect x="40" y="208" width="820" height="5" rx="2" fill="#231d3d"/>
+  <rect x="0" y="330" width="900" height="30" fill="#07060e"/>
+  <rect x="40" y="268" width="820" height="5" rx="2" fill="#231d3d"/>
   <g stroke="#231d3d" stroke-width="4">
-    <line x1="70"  y1="213" x2="70"  y2="290"/><line x1="150" y1="213" x2="150" y2="290"/>
-    <line x1="230" y1="213" x2="230" y2="290"/><line x1="310" y1="213" x2="310" y2="290"/>
-    <line x1="390" y1="213" x2="390" y2="290"/><line x1="470" y1="213" x2="470" y2="290"/>
-    <line x1="550" y1="213" x2="550" y2="290"/><line x1="630" y1="213" x2="630" y2="290"/>
-    <line x1="710" y1="213" x2="710" y2="290"/><line x1="790" y1="213" x2="790" y2="290"/>
-  </g>
-
-  <!-- figure leaning on rail -->
-  <g fill="#050508">
-    <circle cx="185" cy="142" r="15"/>
-    <path d="M163 210 q-2 -42 22 -50 q20 -6 26 14 q4 14 20 22 l14 8 q4 3 1 7 l-6 1 q-16 -4 -30 -12 l0 10 q0 8 -8 8 l-31 0 q-8 0 -8 -8 z"/>
-    <rect x="166" y="205" width="12" height="85" rx="4"/>
-    <rect x="186" y="205" width="12" height="85" rx="4"/>
+    <line x1="70" y1="273" x2="70" y2="332"/><line x1="150" y1="273" x2="150" y2="332"/>
+    <line x1="230" y1="273" x2="230" y2="332"/><line x1="310" y1="273" x2="310" y2="332"/>
+    <line x1="390" y1="273" x2="390" y2="332"/><line x1="470" y1="273" x2="470" y2="332"/>
+    <line x1="550" y1="273" x2="550" y2="332"/><line x1="630" y1="273" x2="630" y2="332"/>
+    <line x1="710" y1="273" x2="710" y2="332"/><line x1="790" y1="273" x2="790" y2="332"/>
   </g>
 
   <!-- coffee on the rail -->
   <g>
-    <rect x="258" y="190" width="22" height="20" rx="3" fill="#2b2350"/>
-    <path d="M280 194 q10 2 0 11" stroke="#2b2350" stroke-width="3" fill="none"/>
-    <path class="steam"    d="M264 186 q3 -6 0 -11" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path class="steam s2" d="M270 186 q-3 -6 0 -11" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path class="steam s3" d="M276 186 q3 -6 0 -11" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <rect x="288" y="248" width="24" height="22" rx="3" fill="#2b2350"/>
+    <path d="M312 252 q11 3 0 12" stroke="#2b2350" stroke-width="3" fill="none"/>
+    <path class="steam" d="M294 244 q3 -7 0 -12" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path class="steam s2" d="M300 244 q-3 -7 0 -12" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path class="steam s3" d="M306 244 q3 -7 0 -12" stroke="#8b80c9" stroke-width="2" fill="none" stroke-linecap="round"/>
   </g>
 
-  <!-- bird on the rail -->
-  <g fill="#050508">
-    <ellipse cx="662" cy="196" rx="20" ry="12"/>
-    <polygon points="678,194 706,202 680,203"/>
-    <g class="head">
-      <circle cx="646" cy="187" r="9"/>
-      <polygon points="638,186 626,189 638,191"/>
-      <circle cx="643" cy="185" r="1.6" fill="#a78bfa"/>
+  <!-- bird silhouetted against the moon -->
+  <g fill="#050408">
+    <!-- tail -->
+    <polygon points="596,238 668,264 600,254"/>
+    <!-- body -->
+    <ellipse cx="562" cy="232" rx="38" ry="24"/>
+    <circle cx="536" cy="218" r="20"/>
+    <!-- folded wing, slightly lighter for depth -->
+    <g class="wing">
+      <path d="M545 218 q42 -8 52 18 q-6 16 -34 12 q-22 -4 -18 -30z" fill="#0e0a1c"/>
     </g>
-    <line x1="656" y1="207" x2="656" y2="212" stroke="#050508" stroke-width="2"/>
-    <line x1="666" y1="207" x2="666" y2="212" stroke="#050508" stroke-width="2"/>
+    <!-- head -->
+    <g class="head">
+      <circle cx="522" cy="196" r="15"/>
+      <polygon points="509,192 484,199 509,201"/>
+      <circle class="blink" cx="517" cy="192" r="2" fill="#a78bfa"/>
+    </g>
+    <!-- legs -->
+    <line x1="550" y1="254" x2="548" y2="268" stroke="#050408" stroke-width="2.5"/>
+    <line x1="566" y1="254" x2="566" y2="268" stroke="#050408" stroke-width="2.5"/>
+    <line x1="544" y1="268" x2="552" y2="268" stroke="#050408" stroke-width="2"/>
+    <line x1="562" y1="268" x2="570" y2="268" stroke="#050408" stroke-width="2"/>
+  </g>
+
+  <!-- falling feather -->
+  <g class="feather">
+    <path d="M620 210 q8 -14 2 -26 q-10 10 -8 24 q2 4 6 2z" fill="#2b2350"/>
+    <line x1="617" y1="212" x2="623" y2="186" stroke="#1a1433" stroke-width="1"/>
   </g>
 </svg>
