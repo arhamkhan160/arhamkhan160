@@ -25,9 +25,9 @@
 
 <br/>
 
-<a href="mailto:ironicalcrow@gmail.com"><img src="https://img.shields.io/badge/Gmail-0b0b1a?style=for-the-badge&logo=gmail&logoColor=a78bfa"/></a>&nbsp;
+<a href="mailto:arhamnatelivealy@gmail.com"><img src="https://img.shields.io/badge/Gmail-0b0b1a?style=for-the-badge&logo=gmail&logoColor=a78bfa"/></a>&nbsp;
 <a href="https://github.com/arhamkhan160"><img src="https://img.shields.io/badge/GitHub-0b0b1a?style=for-the-badge&logo=github&logoColor=ffb000"/></a>&nbsp;
-<a href="https://www.linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0b0b1a?style=for-the-badge&logo=linkedin&logoColor=a78bfa"/></a>
+<a href="https://www.linkedin.com/in/ahir-khan/"><img src="https://img.shields.io/badge/LinkedIn-0b0b1a?style=for-the-badge&logo=linkedin&logoColor=a78bfa"/></a>
 
 </div>
 
@@ -45,7 +45,7 @@ CS undergrad @ Islamic University of Technology 🇧🇩
 arham@midnight:~$ tail -f current_work.log
 [BUILDING ]  praxis         → AI career co-pilot (RAG · LangChain · FastAPI · Qdrant)
 [SHIPPING ]  AmarDesh       → civic platform: citizens ⇄ government
-[TRAINING ]  AutoML Agent   → plain English in, trained model out
+[TRAINING ]  JANTRIKOTA.ai   → plain English in, trained model out
 [BREWING  ]  coffee.service → active (running) since sunset
 
 arham@midnight:~$ cat night.log
