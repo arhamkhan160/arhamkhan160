@@ -36,6 +36,8 @@
     @keyframes look{0%,55%,100%{transform:rotate(0)}63%,80%{transform:rotate(-10deg)}}
     .blink{animation:bl 5s infinite}
     @keyframes bl{0%,92%,100%{opacity:1}95%{opacity:0}}
+    .eyeglow{animation:eg 2.2s ease-in-out infinite}
+    @keyframes eg{0%,100%{opacity:.2}50%{opacity:.6}}
     .wing{animation:ruffle 11s ease-in-out infinite;transform-box:fill-box;transform-origin:20% 40%}
     @keyframes ruffle{0%,88%,100%{transform:rotate(0)}91%{transform:rotate(-7deg)}94%{transform:rotate(3deg)}97%{transform:rotate(-2deg)}}
     .feather{animation:fall 16s ease-in-out infinite;opacity:0}
@@ -140,7 +142,8 @@
     <g class="head">
       <circle cx="522" cy="196" r="15"/>
       <polygon points="509,192 484,199 509,201"/>
-      <circle class="blink" cx="517" cy="192" r="2" fill="#a78bfa"/>
+      <circle class="eyeglow" cx="517" cy="192" r="4.5" fill="#ff2b2b" opacity=".3"/>
+      <circle class="blink" cx="517" cy="192" r="2" fill="#ff3131"/>
     </g>
     <!-- legs -->
     <line x1="550" y1="254" x2="548" y2="268" stroke="#050408" stroke-width="2.5"/>
