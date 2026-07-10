@@ -175,7 +175,7 @@ arham@midnight:~$ cat night.log
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=arhamkhan160&bg_color=0b0b1a&color=a78bfa&line=a78bfa&point=ffb000&area_color=1a1033&area=true&hide_border=true&custom_title=Contribution%20Activity&title_color=a78bfa" width="96%"/>
+<img src="https://raw.githubusercontent.com/arhamkhan160/arhamkhan160/main/assets/crow-graph.svg" width="96%" alt="contributions"/>
 
 </div>
 

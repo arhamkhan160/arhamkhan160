@@ -1,17 +1,18 @@
 """Generate an animated 'flock of crows' contribution graph SVG.
 
 Crows fly left-to-right over the contribution grid; columns dim as the
-lead crow passes and regrow behind the flock. Output: dist/crow-graph.svg
-Run in GitHub Actions with GITHUB_TOKEN set; without a token it renders
-demo data so you can preview locally.
+lead crow passes and regrow behind the flock. Output: assets/crow-graph.svg
+With GITHUB_TOKEN set it uses the GraphQL API; without one it scrapes the
+public contribution calendar, so local runs still use real data.
 """
 import json
 import os
-import random
+import re
 import urllib.request
 
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 LOGIN = os.environ.get("GH_LOGIN", "arhamkhan160")
+OUT = os.environ.get("OUT", "assets/crow-graph.svg")
 
 LEVELS = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"]
 COLORS = {
@@ -23,13 +24,31 @@ COLORS = {
 }
 
 
+def scrape_weeks():
+    """No-token path: parse the public contributions calendar HTML."""
+    req = urllib.request.Request(
+        f"https://github.com/users/{LOGIN}/contributions",
+        headers={"User-Agent": "Mozilla/5.0"},
+    )
+    html = urllib.request.urlopen(req).read().decode()
+    days = re.findall(r'data-date="(\d{4}-\d\d-\d\d)"[^>]*data-level="(\d)"', html)
+    if not days:  # attribute order varies
+        days = [(d, l) for l, d in re.findall(r'data-level="(\d)"[^>]*data-date="(\d{4}-\d\d-\d\d)"', html)]
+    days.sort()
+    weeks, week = [], []
+    for date, level in days:
+        week.append({"contributionLevel": LEVELS[int(level)]})
+        if len(week) == 7:
+            weeks.append({"contributionDays": week})
+            week = []
+    if week:
+        weeks.append({"contributionDays": week})
+    return weeks
+
+
 def fetch_weeks():
-    if not TOKEN:  # local preview
-        random.seed(7)
-        return [
-            {"contributionDays": [{"contributionLevel": random.choice(LEVELS)} for _ in range(7)]}
-            for _ in range(53)
-        ]
+    if not TOKEN:
+        return scrape_weeks()
     q = (
         "query($login:String!){user(login:$login){contributionsCollection"
         "{contributionCalendar{weeks{contributionDays{contributionLevel}}}}}}"
@@ -121,7 +140,7 @@ parts.append(f'<g class="flock c2" opacity=".8"><g transform="translate(-46,30) 
 parts.append(f'<g class="flock c3" opacity=".6"><g transform="translate(-84,54) scale(.55)">{CROW}</g></g>')
 parts.append("</svg>")
 
-os.makedirs("dist", exist_ok=True)
-with open("dist/crow-graph.svg", "w", encoding="utf-8") as f:
+os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
+with open(OUT, "w", encoding="utf-8") as f:
     f.write("".join(parts))
-print(f"wrote dist/crow-graph.svg ({n} weeks, {W}x{H})")
+print(f"wrote {OUT} ({n} weeks, {W}x{H})")
